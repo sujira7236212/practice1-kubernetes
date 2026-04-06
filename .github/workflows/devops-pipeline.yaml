@@ -29,10 +29,4 @@ jobs:
         uses: azure/setup-helm@v3
       - name: Lint Helm Chart
         run: helm lint ./node-app-chart
-      - name: Deploy to Kubernetes
-        uses: azure/k8s-deploy@v1
-        with:
-          manifests: |
-            ./node-app-chart/templates/deployment.yaml
-          images: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/node-hello:latest
+      
